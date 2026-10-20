@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0c0a" />
+    <title>抽號碼｜隨機選號器</title>
+    <meta name="description" content="自訂範圍與數量的隨機抽號碼工具。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="masthead">
+        <a class="brand" href="/" aria-label="回到首頁">抽號碼</a>
+        <p class="status"><span class="signal" aria-hidden="true"></span> 隨機選號器</p>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <p class="folio">01 / RANDOM DRAW</p>
+        <h1 id="page-title">輪到哪個<br /><em>號碼？</em></h1>
+        <p class="intro">設定號碼範圍與抽取數量，按下按鈕就開始。每輪結果不重複。</p>
+      </section>
+
+      <section class="console" aria-label="抽號碼設定">
+        <div class="setting-grid">
+          <label>
+            <span>最小號碼</span>
+            <input id="min" type="number" value="1" inputmode="numeric" />
+          </label>
+          <label>
+            <span>最大號碼</span>
+            <input id="max" type="number" value="100" inputmode="numeric" />
+          </label>
+          <label>
+            <span>抽取數量</span>
+            <input id="count" type="number" value="1" min="1" inputmode="numeric" />
+          </label>
+        </div>
+        <p id="validation" class="validation" role="alert" aria-live="polite"></p>
+        <button id="draw-button" class="draw-button" type="button">抽出號碼 <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="result-section" aria-labelledby="result-heading">
+        <div class="section-heading">
+          <h2 id="result-heading">本輪結果</h2>
+          <p id="range-note">等待抽取</p>
+        </div>
+        <div id="result" class="result" aria-live="polite">
+          <p class="placeholder">準備好了就開始抽號碼</p>
+        </div>
+      </section>
+
+      <section class="history-section" aria-labelledby="history-heading">
+        <div class="section-heading">
+          <h2 id="history-heading">抽取紀錄</h2>
+          <button id="clear-history" class="text-button" type="button" disabled>清除紀錄</button>
+        </div>
+        <ol id="history" class="history" aria-live="polite"></ol>
+      </section>
+    </main>
+    <footer>每一次抽取皆由瀏覽器隨機產生。</footer>
+    <script src="app.js"></script>
+  </body>
+</html>
